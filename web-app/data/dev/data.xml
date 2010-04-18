@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DBUnit flat XML file -->
+<dataset>
+    <code_Decode cd_Group="SYSTEM" cd_Code="SYSTEM" cd_Value="SYSTEM" description="System" version="1" />
+
+    <code_Decode cd_Group="USERROLE" cd_Code="USER" cd_Value="User" description="System" version="1" />
+    <code_Decode cd_Group="USERROLE" cd_Code="MANAGER" cd_Value="Manager" description="System" version="1" />
+    <code_Decode cd_Group="USERROLE" cd_Code="ADMIN" cd_Value="Administrator" description="System" version="1" />
+                   
+    <code_Decode cd_Group="GENDER" cd_Code="MALE" cd_Value="Male" description="Male" version="1" />
+    <code_Decode cd_Group="GENDER" cd_Code="FEMALE" cd_Value="Female" description="Male" version="1" />
+
+    <code_Decode cd_Group="MARITALSTATUS" cd_Code="SINGLE" cd_Value="Single" description="Single" version="1" />
+    <code_Decode cd_Group="MARITALSTATUS" cd_Code="MARRIED" cd_Value="Married" description="Married" version="1" />
+    <code_Decode cd_Group="MARITALSTATUS" cd_Code="DIVORCE" cd_Value="Divorce" description="Divorce" version="1" />
+
+    <code_Decode cd_Group="COUNTRY" cd_Code="ID" cd_Value="Indonesia" description="Indonesia" version="1" />
+    <code_Decode cd_Group="COUNTRY" cd_Code="US" cd_Value="Unites States" description="United States" version="1" />
+    <code_Decode cd_Group="COUNTRY" cd_Code="AU" cd_Value="Australia" description="Australia" version="1" />
+    <code_Decode cd_Group="COUNTRY" cd_Code="SG" cd_Value="Singapore" description="Singapore" version="1" />
+    <code_Decode cd_Group="COUNTRY" cd_Code="MY" cd_Value="Malaysia" description="Malaysia" version="1" />
+
+    <code_Decode cd_Group="PARTY" cd_Code="PARTY" cd_Value="Party" description="Party" version="1" />
+    <code_Decode cd_Group="PARTY" cd_Code="ORGANIZATION" cd_Value="Organization" description="Organization" version="1" />
+    <code_Decode cd_Group="PARTY" cd_Code="PERSON" cd_Value="Person" description="Person" version="1" />
+    <code_Decode cd_Group="PARTY" cd_Code="ORGANIZATION-INFORMAL" cd_Value="Informal Organization" description="Legal Organization" version="1" />
+    <code_Decode cd_Group="PARTY" cd_Code="ORGANIZATION-LEGAL" cd_Value="Legal Organization" description="Legal Organization" version="1" />
+    <code_Decode cd_Group="PARTY" cd_Code="PERSON-EMPLOYEE" cd_Value="Employee" description="Employee" version="1" />
+
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PERSON" cd_Value="Person" description="Person" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PERSON-EMPLOYEE" cd_Value="Employee" description="Employee" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PERSON-CONTRACTOR" cd_Value="Contractor" description="Contractor" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PERSON-FAMILYMEMBER" cd_Value="Family Member" description="Family Member" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PERSON-CONTACT" cd_Value="Contact Person" description="Contact Person" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="CUSTOMER" cd_Value="Customer" description="Customer" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="CUSTOMER-BILLTO" cd_Value="Bill-to Customer" description="Bill To Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="CUSTOMER-SHIPTO" cd_Value="Ship-to Customer" description="Ship to Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="CUSTOMER-ENDUSER" cd_Value="End User" description="End User Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="PROSPECT" cd_Value="Prospect" description="Prospect Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="SHAREHOLDER" cd_Value="Shareholder" description="Shareholder Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="ORGANIZATION" cd_Value="Organization" description="Organization Role" version="1" />
+
+    <code_Decode cd_Group="PARTYROLE" cd_Code="ORGANIZATION-UNIT" cd_Value="Organization Unit" description="Organization Unit Role" version="1" />
+    <code_Decode cd_Group="PARTYROLE" cd_Code="ORGANIZATION-INTERNAL" cd_Value="Internal Organization" description="Internal Organization" version="1" />
+
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="EMPLOYMENT" cd_Value="Employment" description="Employment" version="1" />
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="CUSTOMER" cd_Value="Customer" description="Customer" version="1" />
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="SUPPLIER" cd_Value="Supplier" description="Supplier" version="1" />
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="PARTNERSHIP" cd_Value="Partnership" description="Partnership" version="1" />
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="ORGANIZATIONCONTACT" cd_Value="Organization Contact" description="Organization Contact" version="1" />
+    <code_Decode cd_Group="PARTYRELATIONSHIP" cd_Code="ORGANIZATIONROLLUP" cd_Value="Organization Rollup" description="Organization rollup" version="1" />
+
+    <code_Decode cd_Group="PARTYCONTACTMECH" cd_Code="TELECOMNUMBER" cd_Value="Telecommunication" description="Telecommunication" version="1" />
+    <code_Decode cd_Group="PARTYCONTACTMECH" cd_Code="ELECTRONIC" cd_Value="Email" description="Email" version="1" />
+    <code_Decode cd_Group="PARTYCONTACTMECH" cd_Code="POSTAL" cd_Value="Postal" description="Postal" version="1" />
+
+    <!-- User Login -->
+    <user_login user_name="admin" user_password="admin123" user_role="ADMIN" email="admin@localhost" version="1" status="OPEN"/>
+    <user_login user_name="rohim" user_password="rohim123" user_role="MANAGER" email="rohim@localhost" version="1" status="OPEN" />
+    <user_login user_name="sinta" user_password="sinta123" user_role="USER" email="sinta@localhost" version="1" status="OPEN" />
+    <user_login user_name="ira" user_password="ira123" user_role="USER" email="imasirawati@localhost" version="1" status="OPEN" />
+
+    <!--Party Person -->
+    <party id="1" class="com.libertech.rtmx.model.party.Person" sub_type_code="PERSON" credit_rating="1" first_name="Abil" last_name="Hakim" personal_title="Mr" nick_name="Kim" gender="MALE" birth_date="1947-11-09" birth_place="Hongkong" marital_status="SINGLE" social_security_no="001"  version="1"/>
+    <party id="2" class="com.libertech.rtmx.model.party.Person" sub_type_code="PERSON" credit_rating="1" first_name="Hakim" last_name="Abil" personal_title="Mr" nick_name="Abil" gender="MALE" birth_date="1944-11-09" birth_place="Jakarta" marital_status="SINGLE" social_security_no="002"  version="1"/>
+    <party class="com.libertech.rtmx.model.party.Person" sub_type_code="PERSON" credit_rating="1" first_name="Imas" last_name="Irawaty" personal_title="Mrs" nick_name="Imas" gender="FEMALE" birth_date="1974-12-19" birth_place="Bandung" marital_status="SINGLE" social_security_no="003"  version="1"/>
+    <party class="com.libertech.rtmx.model.party.Person" sub_type_code="PERSON" credit_rating="1" first_name="Noval" last_name="Arief" personal_title="Mr" nick_name="Nopal" gender="MALE" birth_date="1966-10-09" birth_place="New York" marital_status="SINGLE" social_security_no="004"  version="1"/>
+
+    <!--Party Organization -->
+    <party id="5" class="com.libertech.rtmx.model.party.Organization"  sub_type_code="ORGANIZATION" org_name="PT SWP" legal_tax_id="001" credit_rating="1.0" version="2"/>
+    <party id="6" class="com.libertech.rtmx.model.party.Organization"  sub_type_code="ORGANIZATION" org_name="PT Capella" legal_tax_id="002" credit_rating="1.0" version="2"/>
+    <party id="7" class="com.libertech.rtmx.model.party.Organization"  sub_type_code="ORGANIZATION" org_name="PT Activmindo" legal_tax_id="003" credit_rating="1.0" version="2"/>
+
+    <!-- Party Type -->
+    <party_type id="1" name="ORGANIZATION" description="Organization" version="1"/>
+    <party_type id="2" name="ORGANIZATION-MINORITY" description="Minority" version="1"/>
+    <party_type id="3" name="ORGANIZATION-INDUSTRY" description="Industry" version="1"/>
+    <party_type id="4" name="ORGANIZATION-SIZE" description="Size" version="1"/>
+    <party_type id="5" name="PERSON" description="Person" version="1"/>
+    <party_type id="6" name="PERSON-EEOC" description="EEOC" version="1"/>
+    <party_type id="7" name="PERSON-INCOME" description="Income" version="1"/>
+    <!-- Party Classificcation -->
+    <party_classification party_id="5" party_type_id="1" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+
+    <!--Party role -->
+    <party_role party_id="5" role_type_id="1" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="1" role_type_id="18" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="1" role_type_id="19" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="1" role_type_id="22" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="1" role_type_id="26" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="2" role_type_id="18" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+    <party_role party_id="2" role_type_id="19" thru_date="1999-01-01" from_date="1999-01-01"  version="1"/>
+
+    <!--Role Type -->
+     <role_type id="1" name="ORGANIZATION" description="Organization" version="1"/>
+     <role_type id="2" name="ORGANIZATION-DISTRIBUTIONCHANNEL" description="Distribution Channel" version="1"/>
+     <role_type id="3" name="ORGANIZATION-DISTRIBUTIONCHANNEL-AGENT" description="Distribution Channel Agent" version="1"/>
+     <role_type id="4" name="ORGANIZATION-DISTRIBUTIONCHANNEL-DISTRIBUTOR" description="Distribution Channel Distributor" version="1"/>
+     <role_type id="5" name="ORGANIZATION-PARTNER" description="Partner" version="1"/>
+     <role_type id="6" name="ORGANIZATION-COMPETITOR" description="Competitor" version="1"/>
+     <role_type id="7" name="ORGANIZATION-HOUSEHOLD" description="Household" version="1"/>
+     <role_type id="8" name="ORGANIZATION-SUPPLIER" description="Supplier" version="1"/>
+     <role_type id="9" name="ORGANIZATION-REGAGENCY" description="Regulatory Agency" version="1"/>
+     <role_type id="10" name="ORGANIZATION-ASSOCIATION" description="Association" version="1"/>
+     <role_type id="11" name="ORGANIZATION-UNIT" description="Organization Unit" version="1"/>
+     <role_type id="12" name="ORGANIZATION-UNIT-PARENT" description="Parent Organization" version="1"/>
+     <role_type id="13" name="ORGANIZATION-UNIT-DEPT" description="Department" version="1"/>
+     <role_type id="14" name="ORGANIZATION-UNIT-DIV" description="Division" version="1"/>
+     <role_type id="15" name="ORGANIZATION-UNIT-OTHER" description="Other Organization Unit" version="1"/>
+     <role_type id="16" name="ORGANIZATION-UNIT-SUBS" description="Subsidiary Organization Unit" version="1"/>
+     <role_type id="17" name="ORGANIZATION-INTERNAL" description="Internal Organization" version="1"/>
+
+     <role_type id="18" name="PERSON" description="Person" version="1"/>
+     <role_type id="19" name="PERSON-EMPLOYEE" description="Employee" version="1"/>
+     <role_type id="20" name="PERSON-CONTRACTOR" description="Contractor" version="1"/>
+     <role_type id="21" name="PERSON-FAMILYMEMBER" description="Family Member" version="1"/>
+     <role_type id="22" name="PERSON-CONTACT" description="Contact" version="1"/>
+
+     <role_type id="23" name="CUSTOMER" description="Customer" version="1"/>
+     <role_type id="24" name="CUSTOMER-BILLTO" description="Bill To Customer" version="1"/>
+     <role_type id="25" name="CUSTOMER-SHIPTO" description="Ship To Customer" version="1"/>
+     <role_type id="26" name="CUSTOMER-ENDUSER" description="End User Customer" version="1"/>
+
+     <role_type id="27" name="PROSPECT" description="Prospect" version="1"/>
+     <role_type id="28" name="SHAREHOLDER" description="Shareholder" version="1"/>
+
+     <!--Party Relationship Type -->
+     <party_relationship_type name="PERSONTOPERSON" description="Person to Person" version="1"/>
+     <party_relationship_type name="ORGTOORG" description="Organization to Organization" version="1"/>
+     <party_relationship_type name="PERSONTOORG" description="Person to Organization" version="1"/>
+
+
+
+</dataset>
