@@ -7,16 +7,20 @@ Before using the framework, let us introduce what VGrails actually. VGrails is c
 = Details =
 
 * Create Grails application:
+
   grails create-app [Your app]
 
 * Checkout the source from http://code.google.com/p/vgrails/source/checkout
+
 * copy all checked out files to your created grails application folder
+
 * install Vaadin Grails plugin:
 
   grails install-plugin vaadin 1.0
   grails install-plugin dbunit-operator
 
-* prepare your MySQL database, create a database as described in conf/DataSource.groovy
+* Prepare your MySQL database, create a database as described in conf/DataSource.groovy
+
 * in DataSource.groovy and Bootstrap.groovy find and uncomment these lines
 
   Bootstrap.groovy:
@@ -31,4 +35,5 @@ Before using the framework, let us introduce what VGrails actually. VGrails is c
 
   grails run-app
  
+
 Enjoy the day.
