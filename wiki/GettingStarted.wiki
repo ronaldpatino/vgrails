@@ -6,32 +6,33 @@ Before using the framework, let us introduce what VGrails actually. VGrails is c
 
 = Details =
 
-* Create Grails application:
+# Create Grails application:
 
   grails create-app [Your app]
 
-* Checkout the source from http://code.google.com/p/vgrails/source/checkout
+# Checkout the source from http://code.google.com/p/vgrails/source/checkout
 
-* copy all checked out files to your created grails application folder
+# copy all checked out files to your created grails application folder
 
-* install Vaadin Grails plugin:
+# install Vaadin Grails plugin:
 
   grails install-plugin vaadin 1.0
   grails install-plugin dbunit-operator
 
-* Prepare your MySQL database, create a database as described in conf/DataSource.groovy
+# Prepare your MySQL database, create a database as described in conf/DataSource.groovy
 
-* in DataSource.groovy and Bootstrap.groovy find and uncomment these lines
+# in DataSource.groovy and Bootstrap.groovy find and uncomment these lines
 
   Bootstrap.groovy:
-  // DbUnitOperator.create()
+  {{{ // DbUnitOperator.create() }}}
 
   Datasource.groovy:
+   {{{
    //dbunitXmlType = "flat"
    //initialData = "data/dev/data.xml" // dbunit-operator Flat-XML or XML data file
    //initialOperation = "CLEAN_INSERT" // dbunit-operator operation
-   
-* Now run your app:
+   }}}
+# Now run your app:
 
   grails run-app
  
