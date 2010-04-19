@@ -8,7 +8,7 @@ Before using the framework, let us introduce what VGrails actually. VGrails is c
 
 # Create Grails application:
 
-  grails create-app [Your app]
+  {{{ grails create-app [Your app] }}}
 
 # Checkout the source from http://code.google.com/p/vgrails/source/checkout
 
@@ -16,8 +16,10 @@ Before using the framework, let us introduce what VGrails actually. VGrails is c
 
 # install Vaadin Grails plugin:
 
+{{{
   grails install-plugin vaadin 1.0
   grails install-plugin dbunit-operator
+}}}
 
 # Prepare your MySQL database, create a database as described in conf/DataSource.groovy
 
