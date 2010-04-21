@@ -52,7 +52,7 @@ public class JLookupField extends CustomField  {
         this.lookupValues = lookupValues;
     }
 
-    @Override
+
     public Class<?> getType() {
         return type;
     }
