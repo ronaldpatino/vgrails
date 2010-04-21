@@ -7,8 +7,8 @@ import com.vaadin.ui.Button
 
 import com.vaadin.ui.HorizontalLayout
 import com.vaadin.terminal.ThemeResource
-import com.libertech.rtmx.ui.util.AppConstant
 import com.vaadin.ui.Alignment
+import org.zhakimel.vgrails.util.VGrailsConstant
 
 /**
  * Creates Grails Form in a modal window
@@ -39,14 +39,14 @@ class GrailsFormWindow extends Window {
     form.hasCrudButton = false
 
     btnSave = new Button("Save")
-    btnSave.setIcon new ThemeResource(AppConstant.ICON_SAVE)
+    btnSave.setIcon new ThemeResource(VGrailsConstant.ICON_SAVE)
 
     btnDelete = new Button("Delete")
     btnDelete.enabled = form.formMode.equals("edit")
-    btnDelete.setIcon new ThemeResource(AppConstant.ICON_DELETE)
+    btnDelete.setIcon new ThemeResource(VGrailsConstant.ICON_DELETE)
 
     btnCancel = new Button("Cancel")
-    btnCancel.setIcon new ThemeResource(AppConstant.ICON_CANCEL)
+    btnCancel.setIcon new ThemeResource(VGrailsConstant.ICON_CANCEL)
 
   }
 

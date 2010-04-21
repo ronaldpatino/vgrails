@@ -1,12 +1,13 @@
 package org.zhakimel.vgrails.component
 
-import com.libertech.rtmx.ui.util.AppConstant
+
 import com.vaadin.data.util.BeanItem
 import com.vaadin.terminal.ThemeResource
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui.Button.ClickListener
 import com.vaadin.ui.*
 import org.zhakimel.vgrails.java.component.JGrailsFieldFactory
+import org.zhakimel.vgrails.util.VGrailsConstant
 
 /**
  * Create Form based on Grails Domain Object
@@ -161,18 +162,18 @@ class GrailsForm extends VerticalLayout {
       hleft.setSpacing true
 
       btnSave = new Button("Save")
-      btnSave.setIcon new ThemeResource(AppConstant.ICON_SAVE)
+      btnSave.setIcon new ThemeResource(VGrailsConstant.ICON_SAVE)
       btnSave.addListener saveClickListener
       hleft.addComponent btnSave
 
       btnDelete = new Button("Delete")
       btnDelete.enabled = formMode.equals("edit")
-      btnDelete.setIcon new ThemeResource(AppConstant.ICON_DELETE)
+      btnDelete.setIcon new ThemeResource(VGrailsConstant.ICON_DELETE)
       btnDelete.addListener deleteClickListener
       hleft.addComponent btnDelete
 
       btnCancel = new Button("Cancel")
-      btnCancel.setIcon new ThemeResource(AppConstant.ICON_CANCEL)
+      btnCancel.setIcon new ThemeResource(VGrailsConstant.ICON_CANCEL)
       btnCancel.addListener cancelClickListener
       hright.addComponent btnCancel
       hright.setComponentAlignment btnCancel, Alignment.MIDDLE_RIGHT
