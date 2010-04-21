@@ -1,8 +1,7 @@
 package com.libertech.rtmx.service
 
-import com.libertech.rtmx.model.common.CodeDecode
-import com.libertech.rtmx.model.common.UserLogin
-import com.libertech.rtmx.model.common.EntityLock
+import org.zhakimel.vgrails.model.core.UserLogin
+import org.zhakimel.vgrails.model.core.CodeDecode
 
 class CommonService {
 

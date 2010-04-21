@@ -1,7 +1,7 @@
 package com.libertech.rtmx.service
 
-import com.libertech.rtmx.model.common.EntityLock
-import com.libertech.rtmx.model.common.UserLogin
+import org.zhakimel.vgrails.model.core.UserLogin
+import org.zhakimel.vgrails.model.core.EntityLock
 
 class LockService {
 

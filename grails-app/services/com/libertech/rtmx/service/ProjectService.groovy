@@ -1,7 +1,7 @@
 package com.libertech.rtmx.service
 
-import com.libertech.rtmx.model.project.Project
-import com.libertech.rtmx.model.common.UserLogin
+import org.zhakimel.vgrails.model.core.UserLogin
+import com.libertech.erp.model.project.Project
 
 /**
  * Provides Project Management DAO and Business Logic

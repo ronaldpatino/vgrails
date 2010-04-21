@@ -1,14 +1,14 @@
 package com.libertech.rtmx.service
 
-import com.libertech.rtmx.model.party.Party
-import com.libertech.rtmx.model.party.Person
-import com.libertech.rtmx.model.party.Organization
-import com.libertech.rtmx.model.common.UserLogin
-import com.libertech.rtmx.model.party.RoleType
-import com.libertech.rtmx.model.party.PartyRole
-import com.libertech.rtmx.model.party.PartyType
-import com.libertech.rtmx.model.party.PartyRelationship
-import com.libertech.rtmx.model.party.PartyRelationshipType
+import org.zhakimel.vgrails.model.core.UserLogin
+import com.libertech.erp.model.party.Organization
+import com.libertech.erp.model.party.Person
+import com.libertech.erp.model.party.Party
+import com.libertech.erp.model.party.PartyType
+import com.libertech.erp.model.party.RoleType
+import com.libertech.erp.model.party.PartyRole
+import com.libertech.erp.model.party.relationship.PartyRelationship
+import com.libertech.erp.model.party.relationship.PartyRelationshipType
 
 /**
  * Party Service, provides DAO service for Party, Organization and Person
