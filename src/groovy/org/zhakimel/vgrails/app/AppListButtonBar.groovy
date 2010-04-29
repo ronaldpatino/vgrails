@@ -7,12 +7,18 @@ import com.vaadin.ui.HorizontalLayout
 import org.zhakimel.vgrails.util.VGrailsConstant
 
 
+
+ /**
+ *  creates Button bar for List page, the buttons are New button, and Refresh button
+  *
+  * @author Abiel Hakeem
+ */
 class AppListButtonBar extends HorizontalLayout {
-  HorizontalLayout hleft= new HorizontalLayout();
-  HorizontalLayout hright=new HorizontalLayout();
-  Label lblCaption
-  Button btnNew
-  Button btnRefresh
+  final HorizontalLayout hleft= new HorizontalLayout();
+  final HorizontalLayout hright=new HorizontalLayout();
+  final Label lblCaption
+  final Button btnNew
+  final Button btnRefresh
 
   def AppListButtonBar(String caption){
     setSpacing true

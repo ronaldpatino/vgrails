@@ -34,7 +34,7 @@ class GrailsForm extends VerticalLayout {
   private List entityFieldIsList=[]
   private Map entityListValues=[:]
 
-  JGrailsFieldFactory grailsFormFieldFactory
+  GrailsFieldFactory grailsFormFieldFactory
   boolean hasCrudButton = true        //form has CRUD button
   boolean topCrudButton = false       //crud button placed on top
 
@@ -51,7 +51,7 @@ class GrailsForm extends VerticalLayout {
     this.entityShowFields = entityShowFields
     this.formCaption = caption
     form = new Form()
-    grailsFormFieldFactory=new JGrailsFieldFactory(entityBean)
+    grailsFormFieldFactory=new GrailsFieldFactory(entityBean)
     saveClickListener = {ClickEvent event ->
       //none please define
     } as ClickListener

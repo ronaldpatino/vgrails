@@ -5,42 +5,33 @@ import com.vaadin.ui.Button
 
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui.CssLayout
-import com.libertech.rtmx.ui.MainApp
 import org.zhakimel.vgrails.util.AppManager
+import org.zhakimel.vgrails.util.VGrailsConstant
 
 class NavigationPanel extends CssLayout implements Button.ClickListener {
 
   Button selectedButton;
-  private MainApp app
+  private VGrailsApplication app
   private AppManager manager
 
   private CssLayout hLayout
-  private String buttonWidth="110px"
+  private String buttonWidth=VGrailsConstant.DEFAULT_MAINMENU_ITEM_WIDTH
 
   /**
    * Constructor
    */
-  @Deprecated
-  NavigationPanel(MainApp app){
-    this.app = app
-    this.manager = app.manager
-    build()
-  }
-
-  /**
-   * Constructor
-   */
-   NavigationPanel(AppManager manager){
+  NavigationPanel(AppManager manager){
     this.manager = manager
     this.app = manager.app
     build()
   }
 
+
   /**
    * build menu buttons
    */
   def build(){
-    setStyleName "toolbar"
+    addStyleName "toolbar"
     setWidth "100%"
     setHeight "28px"
     hLayout = new CssLayout()
@@ -58,7 +49,6 @@ class NavigationPanel extends CssLayout implements Button.ClickListener {
   void buttonClick(ClickEvent clickEvent) {
      String caption = clickEvent.getButton().getCaption()
      app.subNavigationPanel.buildMenu caption
-
 
     if(clickEvent.button!=selectedButton){
       if(selectedButton) selectedButton.removeStyleName("default")

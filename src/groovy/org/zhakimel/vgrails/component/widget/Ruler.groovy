@@ -1,4 +1,4 @@
-package org.zhakimel.vgrails.component
+package org.zhakimel.vgrails.component.widget
 
 import com.vaadin.ui.Label
 

@@ -9,6 +9,7 @@ import com.vaadin.ui.*
 import com.vaadin.data.validator.StringLengthValidator
 import com.vaadin.data.util.IndexedContainer
 import com.vaadin.data.util.BeanItemContainer
+import org.zhakimel.vgrails.component.widget.LookupObjectField
 
 /**
  * Vaadin FieldFactory that reads Grails entity field types and constraints
@@ -16,28 +17,48 @@ import com.vaadin.data.util.BeanItemContainer
  */
 class GrailsFieldFactory extends DefaultFieldFactory {
 
+  //refference of entity to be produced
   def entity
+
+  //check which field is list
   List entityFieldIsList = []
 
+  //generate select value from list
   Map entityListValues = [:]
-  Map entityObjectValues = [:]
+
+  //generate object selection from list of object
+  Map<String,List> entityObjectValues = [:]
+
+  //generate object selection column of list of object
+  Map<String,Map> entityObjectColumns = [:]
+
+
   Map customCaptionMap = [:]
+
+  //map of field caption
   Map fieldCaptionMap=[:]
+
+  //map of field width
   Map fieldWidthMap=[:]
+
+  //map of which field is disabled
   Map fieldDisableMap = [:]
 
+  //locale for internationalization
   Locale locale
+
+  //date format
   String dateFormat
 
+  //constructor
   def GrailsFieldFactory(entity) {
     this.entity = entity
   }
 
-  def setEntityObjectValues(Map map){
-    println("setEntityObjectValues"+map)
-    entityObjectValues = map
-  }
+ 
 
+
+  //field generator
   def Field createField(Item item, Object propertyId,
                         Component uiContext) {
 
@@ -56,10 +77,6 @@ class GrailsFieldFactory extends DefaultFieldFactory {
       def constraint = entity.constraints[propertyId]
       def entityField = entity[propertyId]
 
-      if(entityObjectValues[propertyId]){
-        println "has Entity Object Values"
-      }
-
       //date field
       if (f instanceof DateField) {
           ((DateField) f).setWidth 100,DateField.UNITS_PIXELS
@@ -73,12 +90,12 @@ class GrailsFieldFactory extends DefaultFieldFactory {
       }
 
       //select field
-      if (checkEntityFieldIsList(propertyId)) {
+      if (checkEntityFieldIsList((String)propertyId)) {
 
         Select select = new Select(title)
         select.setColumns 20
         select.setImmediate true
-        select.setContainerDataSource getSelectValues(propertyId)
+        select.setContainerDataSource getSelectValues((String) propertyId)
         select.setItemCaptionPropertyId("name")
         if (!constraint.nullable ||
                 !constraint.blank) {
@@ -86,7 +103,6 @@ class GrailsFieldFactory extends DefaultFieldFactory {
           select.setRequiredError title + " must not be blank"
         }
 
-        println propertyId + " SELECT created"
         return select
       }
 
@@ -111,18 +127,16 @@ class GrailsFieldFactory extends DefaultFieldFactory {
           def min = ((Range) constraint.size).min()
           def max = ((Range) constraint.size).max()
           println propertyId + " has size"
-          f.addValidator(new StringLengthValidator(title + " should have characters min:" + min + " max:" + max, min, max, false))
+          String msg = title + " should have characters min:" + min + " max:" + max
+          f.addValidator(new StringLengthValidator(msg, min, max, false))
           ((TextField) f).setImmediate true
-
 
         }
 
         if (constraint.email) {
           println propertyId + " is email"
           f.addValidator(new EmailValidator(title + " should a valid email address"))
-
           ((TextField) f).setImmediate true
-
         }
 
         if (constraint.creditCard) {
@@ -136,7 +150,8 @@ class GrailsFieldFactory extends DefaultFieldFactory {
         if (constraint.url) {
           println propertyId + " is url"
           String urlRegex = "(http|ftp|https):\\/\\/[\\w\\-_]+(\\.[\\w\\-_]+)+([\\w\\-\\.,@?^=%&amp;:/~\\+#]*[\\w\\-\\@?^=%&amp;/~\\+#])?"
-          f.addValidator(new RegexpValidator(urlRegex), title + " should a valid URL")
+          String msg= title + " should a valid URL"
+          f.addValidator new RegexpValidator(urlRegex), msg
           ((TextField) f).setImmediate true
         }
 
@@ -159,23 +174,18 @@ class GrailsFieldFactory extends DefaultFieldFactory {
         } else if (constraint
                   && (entityObjectValues[propertyId])
           ) {
-            Select select = new Select(title,getBeanValues(propertyId))
-            select.filteringMode=AbstractSelect.Filtering.FILTERINGMODE_OFF
-            select.setNullSelectionAllowed false
-            select.setImmediate true
 
-            if (!constraint.nullable ||
-                    !constraint.blank) {
-              select.setRequired(true)
-              select.setRequiredError title + " must not be blank"
+
+            Map cols
+            if(entityObjectColumns[propertyId]){
+              cols = entityObjectColumns[propertyId]
+            }else{
+              cols=["id":String.class]
             }
-
-            println "INIT="+entityField
-            select.setValue(entityField)
-
-            println "GV="+select.getValue()
-
-            return select
+            
+            LookupObjectField lof = new LookupObjectField((String)propertyId,(List)entityObjectValues[propertyId],cols)
+            lof.setValue item.getItemProperty(propertyId.toString()).getValue()
+            return lof
           }
 
       if (propertyId.toString().equals("description") && f instanceof TextField) {
@@ -231,8 +241,6 @@ class GrailsFieldFactory extends DefaultFieldFactory {
 
     return container
   }
-
-
 
    private BeanItemContainer getBeanValues(String entityFieldName) {
     BeanItemContainer container = new BeanItemContainer((List)entityObjectValues[entityFieldName])

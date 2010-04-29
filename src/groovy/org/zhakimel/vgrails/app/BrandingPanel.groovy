@@ -4,30 +4,47 @@ import com.vaadin.ui.Label
 
 import com.vaadin.ui.Button
 
-import com.libertech.rtmx.ui.MainApp
 import com.vaadin.ui.Button.ClickEvent
 import com.vaadin.ui.Button.ClickListener
 import com.vaadin.ui.HorizontalLayout
 
 import com.vaadin.ui.GridLayout
-import org.zhakimel.vgrails.component.Spacer
+import org.zhakimel.vgrails.component.widget.Spacer
 import org.zhakimel.vgrails.util.AppManager
+import com.vaadin.ui.Component
+import com.vaadin.ui.Panel
+import com.vaadin.ui.Select
+import com.vaadin.ui.PopupView
+import com.vaadin.data.Property
 
-
+/**
+ * Creates panel for branding, on the left are for application title or logo,
+ * and on the right are buttons for settings and login/logout with LINK_STYLE
+ *
+ * @author Abiel Hakeem
+ */
 class BrandingPanel extends HorizontalLayout {
 
+  //User name label
   Label  lblUserName = new Label("Welcome User | ")
-  Button lnkLogout = new Button("Logout")
-  Button lnkSettings = new Button("Settings")
-  
+
+  //login/logout button
+  final Button lnkLogout = new Button("Logout")
+
+  //settings button
+  final PopupView lnkThemes = new PopupView("Themes",buildThemeSelectComponent())
+
+  //title for your application
   Label title = new Label("Libertech RTM")
 
-  private MainApp app
+  //applica
+  private VGrailsApplication app
   private AppManager manager
 
-  def BrandingPanel(MainApp app) {
-    this.app = app
-    this.manager = app.manager
+  def BrandingPanel(AppManager manager) {
+    this.manager = manager
+    this.app = manager.app
+
     lnkLogout.visible = false
 
     setWidth "100%"
@@ -45,8 +62,8 @@ class BrandingPanel extends HorizontalLayout {
     right.setSpacing true
     right.setWidth  "200px"
     
-    lnkSettings.addStyleName "link"
-    right.addComponent lnkSettings
+    
+    right.addComponent lnkThemes
 
     lnkLogout.addStyleName "link"
 
@@ -61,6 +78,48 @@ class BrandingPanel extends HorizontalLayout {
     addComponent right
     setExpandRatio left,1
 
+  }
+
+  private Component buildThemeSelectComponent() {
+    def themes = [
+      "chameleon-blue" : "Blue",
+      "chameleon-green" : "Green",
+      "chameleon-dark" : "Dark",
+      "corporate":"Corporate",
+      "fengshui":"Feng Shui",
+      "greyly":"Grey",
+      "latte":"Latte Factor",
+      "pinkely":"Pinky",
+      "thematrix":"The Matrix"
+    ]
+
+    Panel panel = new Panel()
+    panel.setSizeUndefined()
+    Select select = new Select("Select your theme")
+    
+    themes.each{
+      select.addItem(it.value)
+    }
+
+    def onselect = {Property.ValueChangeEvent event ->
+      String selected=""
+      for(x in themes){
+        if(x.value.equals(select.value)){
+          selected = x.key
+          break;
+        }
+      }
+
+      manager.app.setTheme selected
+
+    }as Property.ValueChangeListener
+    
+    select.addListener onselect
+
+
+    panel.addComponent select
+
+    return panel;
   }
 
 }

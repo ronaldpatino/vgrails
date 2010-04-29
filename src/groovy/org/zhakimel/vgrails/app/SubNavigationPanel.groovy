@@ -2,20 +2,17 @@ package org.zhakimel.vgrails.app
 
 import com.vaadin.ui.VerticalLayout
 import com.vaadin.ui.Label
-import com.libertech.rtmx.ui.util.AppConstant
 import com.vaadin.ui.Button
-
 import com.vaadin.ui.Button.ClickEvent
-
 import com.vaadin.ui.Component
-
 import com.vaadin.ui.CssLayout
 import com.vaadin.ui.NativeButton
 import com.vaadin.terminal.ThemeResource
-import com.libertech.rtmx.ui.MainApp
+
 
 import com.vaadin.ui.HorizontalLayout
 import org.zhakimel.vgrails.util.AppManager
+import org.zhakimel.vgrails.util.VGrailsConstant
 
 
 class SubNavigationPanel extends CssLayout implements Button.ClickListener {
@@ -27,13 +24,13 @@ class SubNavigationPanel extends CssLayout implements Button.ClickListener {
   Button currentButton;
   String currentMenuTitle;
 
-  private MainApp app
+  private VGrailsApplication app
   private AppManager manager
 
-  def SubNavigationPanel(MainApp app){
+  def SubNavigationPanel(AppManager manager){
      super()
-     this.app = app
-     this.manager = app.manager
+     this.manager = manager
+     this.app = manager.app
 
      setStyleName "sidebar-menu"
      setHeight "100%"
@@ -52,13 +49,18 @@ class SubNavigationPanel extends CssLayout implements Button.ClickListener {
 
     manager.NAVIGATION_APP_PANEL[menuTitle].each{
          def k=it.getKey()
-        
+         if(it.value instanceof String){
+          Label l = new Label(k)
+          addComponent l
+
+         }else{
          def b=new NativeButton(k,this)
-         b.setIcon new ThemeResource(AppConstant.ICON_DOCUMENT)
+         b.setIcon new ThemeResource(VGrailsConstant.ICON_DOCUMENT)
          addComponent b
+         }
     }
 
-    Label label =  new Label("<div>"+AppConstant.MAP_NAV_INFO[menuTitle]+"</div>",Label.CONTENT_XHTML)
+    Label label =  new Label("<div>"+manager.NAVIGATION_APP_INFO[menuTitle]+"</div>",Label.CONTENT_XHTML)
     label.addStyleName "tiny"
     HorizontalLayout hl = new HorizontalLayout()
     hl.setWidth "100%"
@@ -89,9 +91,8 @@ class SubNavigationPanel extends CssLayout implements Button.ClickListener {
         if(currentButton!=null)
            currentButton.removeStyleName("selected")
 
-      app.contentPanel.removeAllComponents()
-      Component  pnl = ((MainApp)getApplication()).manager.NAVIGATION_APP_PANEL[currentMenuTitle][subMenuTitle]
-      app.contentPanel.addComponent pnl
+      Component  pnl = manager.getContentPanel(currentMenuTitle,subMenuTitle)
+      manager.setContent pnl
 
       if(!pnl.isBuilt()){
           pnl.build()
