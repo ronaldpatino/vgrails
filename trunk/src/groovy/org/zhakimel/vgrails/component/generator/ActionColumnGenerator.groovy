@@ -6,12 +6,13 @@ import com.vaadin.ui.Component
 import com.vaadin.ui.Table
 import com.vaadin.ui.Button
 import com.vaadin.terminal.ThemeResource
-import com.libertech.rtmx.ui.util.AppConstant
+
 import com.vaadin.data.util.BeanItem
+import org.zhakimel.vgrails.util.VGrailsConstant
 
 class ActionColumnGenerator implements Table.ColumnGenerator {
    def editButtonClickListener = {Button.ClickEvent event ->
-      //none please define
+   
     } as Button.ClickListener
 
   def ActionColumnGenerator(){
@@ -28,7 +29,7 @@ class ActionColumnGenerator implements Table.ColumnGenerator {
     btn.setDescription "edit " + sid
     btn.addListener editButtonClickListener
     btn.setStyleName Button.STYLE_LINK
-    btn.setIcon new ThemeResource(AppConstant.ICON_EDIT)
+    btn.setIcon new ThemeResource(VGrailsConstant.ICON_EDIT)
     return btn;
 }
   }

@@ -8,15 +8,29 @@ import com.vaadin.ui.Label
 import com.vaadin.ui.HorizontalLayout
 import org.zhakimel.vgrails.util.VGrailsConstant
 
+/**
+ * Generates button bar for App Panel where it will be located at top of the panel
+ * and contains caption, save button, delete button and cancel button
+ *
+ * @author Abiel Hakeem
+ */
 class AppButtonBar extends HorizontalLayout {
 
   final HorizontalLayout hleft= new HorizontalLayout();
   final HorizontalLayout hright=new HorizontalLayout();
   final Label lblCaption
+
+  // save buton
   final Button btnSave
+
+  //delete button
   final Button btnDelete
+
+  //cancel button
   final Button btnCancel
-  CssLayout auxLayout=new CssLayout();
+
+  //auxiliary layout for adding other buttons before cancel button
+  HorizontalLayout auxLayout=new HorizontalLayout();
 
 
   def AppButtonBar(String caption){

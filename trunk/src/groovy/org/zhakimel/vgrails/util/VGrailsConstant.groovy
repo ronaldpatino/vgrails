@@ -5,7 +5,9 @@ package org.zhakimel.vgrails.util
  */
 class VGrailsConstant {
 
-/**
+
+  static final String DEFAULT_MAINMENU_ITEM_WIDTH="200px"
+  /**
    * Icons
    */
 
@@ -46,6 +48,8 @@ class VGrailsConstant {
   static final String STR_STATUS_ON = "ON"
   static final String STR_STATUS_PENDING = "PENDING"
   static final String STR_REFRESH = "Refresh"
+  static final String STR_SEARCH = "Search"
+
 
 
 }

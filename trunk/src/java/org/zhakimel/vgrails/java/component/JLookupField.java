@@ -34,7 +34,7 @@ public class JLookupField extends CustomField  {
         this.caption = caption;
     }
 
-    @Override
+
     public void setValue(Object newValue) throws ReadOnlyException, ConversionException {
         super.setValue(newValue);
         textField.setValue(newValue);
